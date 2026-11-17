@@ -1,0 +1,14 @@
+{
+  "name": "@repo/utils",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "oxlint .",
+    "typecheck": "tsc --noEmit",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*"
+  }
+}

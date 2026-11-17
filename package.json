@@ -1,15 +1,26 @@
 {
   "name": "projects",
   "private": true,
-  "packageManager": "bun@1.4.3",
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "type": "module",
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "test": "turbo run test"
+    "lint": "oxlint oxfmt.config.ts && turbo run lint",
+    "test": "turbo run test",
+    "typecheck": "tsc --noEmit && turbo run typecheck",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
   },
   "devDependencies": {
-    "turbo": "^2.11.11"
-  }
+    "@repo/config": "workspace:*",
+    "oxfmt": "^0.79.0",
+    "oxlint": "^1.94.0",
+    "turbo": "^2.11.11",
+    "typescript": "^7.0.2"
+  },
+  "packageManager": "bun@1.4.3"
 }

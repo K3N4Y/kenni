@@ -1,0 +1,20 @@
+{
+  "name": "@repo/config",
+  "private": true,
+  "description": "Configuraciones compartidas de Oxlint, Oxfmt y TypeScript.",
+  "type": "module",
+  "exports": {
+    "./oxlint": "./oxlint.json",
+    "./oxfmt": "./oxfmt.config.ts",
+    "./tsconfig.base.json": "./tsconfig.base.json"
+  },
+  "scripts": {
+    "lint": "oxlint .",
+    "typecheck": "tsc --noEmit",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
+  },
+  "devDependencies": {
+    "oxfmt": "^0.79.0"
+  }
+}
