@@ -1,10 +1,7 @@
-import { createModels } from "@earendil-works/pi-ai/models";
-import { openaiProvider } from "@earendil-works/pi-ai/providers/openai";
+import { builtinModels } from "@earendil-works/pi-ai/providers/all";
 
-export const defaultModel = { provider: "openai", modelId: "gpt-5-mini" };
+export const defaultModel = { provider: "openai-codex", modelId: "gpt-6-luna" };
 
 export function createAgentModels() {
-  const models = createModels();
-  models.setProvider(openaiProvider());
-  return models;
+  return builtinModels();
 }
