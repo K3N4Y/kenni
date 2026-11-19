@@ -7,13 +7,11 @@
   ],
   "type": "module",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
     "lint": "oxlint oxfmt.config.ts && turbo run lint",
-    "test": "turbo run test",
     "typecheck": "tsc --noEmit && turbo run typecheck",
     "format": "oxfmt --write .",
-    "format:check": "oxfmt --check ."
+    "format:check": "oxfmt --check .",
+    "agent": "bun run --cwd apps/agent start"
   },
   "devDependencies": {
     "@repo/config": "workspace:*",
