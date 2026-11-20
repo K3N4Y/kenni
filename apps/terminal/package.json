@@ -1,0 +1,16 @@
+{
+  "name": "@repo/terminal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun run main.ts",
+    "lint": "oxlint .",
+    "typecheck": "tsc --noEmit",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "@types/bun": "^1.4.5"
+  }
+}
