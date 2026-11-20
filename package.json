@@ -14,10 +14,12 @@
     "check": "sh scripts/check-workspaces.sh",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
+    "prepare": "husky",
     "agent": "bun run --cwd apps/agent start"
   },
   "devDependencies": {
     "@repo/config": "workspace:*",
+    "husky": "^9.1.7",
     "oxfmt": "^0.79.0",
     "oxlint": "^1.94.0",
     "turbo": "^2.11.11",
