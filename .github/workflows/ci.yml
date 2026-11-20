@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Format
+            check: format
+          - name: Lint and typecheck
+            check: workspaces
+    steps:
+      - uses: actions/checkout@v7
+        if: matrix.check == 'format'
+        with:
+          persist-credentials: false
+
+      - uses: actions/checkout@v7
+        if: matrix.check == 'workspaces'
+        with:
+          filter: blob:none
+          fetch-depth: 0
+          # Keep the read-only token available for lazy blob fetches on private repos.
+
+      - uses: oven-sh/setup-bun@v2
+        id: bun
+        with:
+          bun-version-file: package.json
+
+      - name: Restore Bun package cache
+        id: bun-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ runner.arch }}-${{ steps.bun.outputs.bun-revision }}-${{ hashFiles('bun.lock') }}
+          restore-keys: |
+            bun-${{ runner.os }}-${{ runner.arch }}-${{ steps.bun.outputs.bun-revision }}-
+
+      - run: bun install --frozen-lockfile
+        env:
+          HUSKY: "0"
+
+      - name: Save Bun package cache
+        if: matrix.check == 'workspaces' && steps.bun-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v5
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ steps.bun-cache.outputs.cache-primary-key }}
+
+      - name: Check formatting
+        if: matrix.check == 'format'
+        run: bun run format:check
+
+      - name: Cache Turbo task results
+        if: matrix.check == 'workspaces'
+        uses: actions/cache@v5
+        with:
+          path: .turbo/cache
+          key: turbo-${{ runner.os }}-${{ runner.arch }}-${{ steps.bun.outputs.bun-revision }}-${{ hashFiles('bun.lock') }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ runner.os }}-${{ runner.arch }}-${{ steps.bun.outputs.bun-revision }}-${{ hashFiles('bun.lock') }}-
+
+      - name: Lint and typecheck
+        if: matrix.check == 'workspaces'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: bun run check "$BASE_SHA"
