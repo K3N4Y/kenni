@@ -1,4 +1,5 @@
 import { parseArgs } from "util"
+import { renderTUI } from "./tui/main"
 
 const usage = `
     kenni v1.0.0
@@ -13,7 +14,7 @@ const usage = `
         --model=<provider/model>  Model to use (exact with a provider: "openai-codex/gpt-6-luna")`;
 
 const { values, positionals } = parseArgs({
-    args: Bun.argv,
+    args: Bun.argv.slice(2),
     options: {
         help: {
             type: "boolean"
@@ -28,4 +29,13 @@ const { values, positionals } = parseArgs({
 if (values.help) {
     console.log(usage)
     process.exit(1);
+}
+
+const instruction = positionals.join(" ").trim();
+
+try {
+    await renderTUI(instruction || undefined);
+} catch (error) {
+    console.error(error);
+    process.exitCode = 1;
 }
