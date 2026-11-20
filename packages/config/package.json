@@ -10,7 +10,7 @@
   },
   "scripts": {
     "lint": "oxlint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "bun check",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check ."
   },

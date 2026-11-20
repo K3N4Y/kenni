@@ -5,18 +5,18 @@
   "scripts": {
     "start": "bun run main.ts",
     "lint": "oxlint .",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "bun check",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check ."
-  },
-  "devDependencies": {
-    "@repo/config": "workspace:*",
-    "@types/bun": "^1.4.5",
-    "@types/react": "^19.3.0"
   },
   "dependencies": {
     "@opentui/core": "^0.9.5",
     "@opentui/react": "^0.9.5",
     "react": "^19.3.1"
+  },
+  "devDependencies": {
+    "@repo/config": "workspace:*",
+    "@types/bun": "^1.4.5",
+    "@types/react": "^19.3.0"
   }
 }

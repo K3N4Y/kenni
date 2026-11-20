@@ -7,8 +7,11 @@
   ],
   "type": "module",
   "scripts": {
-    "lint": "oxlint oxfmt.config.ts && turbo run lint",
-    "typecheck": "tsc --noEmit && turbo run typecheck",
+    "lint": "bun run lint:root && turbo run lint",
+    "lint:root": "oxlint oxfmt.config.ts",
+    "typecheck": "bun run typecheck:root && turbo run typecheck",
+    "typecheck:root": "bun check",
+    "check": "sh scripts/check-workspaces.sh",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check .",
     "agent": "bun run --cwd apps/agent start"
