@@ -27,8 +27,8 @@ const { values, positionals } = parseArgs({
 });
 
 if (values.help) {
-    console.log(usage)
-    process.exit(1);
+    console.log(usage);
+    process.exit(0);
 }
 
 const instruction = positionals.join(" ").trim();
