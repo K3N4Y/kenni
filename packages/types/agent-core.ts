@@ -15,4 +15,3 @@ export type ConversationResult =
       detail?: Exclude<SubmissionRecord["detail"], undefined>;
     }
   | { status: "not_found"; sessionId: number };
-

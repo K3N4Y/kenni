@@ -1,21 +1,21 @@
 {
   "name": "agent-core",
-  "exports": "./main.ts",
-  "type": "module",
   "private": true,
+  "type": "module",
+  "exports": "./main.ts",
   "scripts": {
     "typecheck": "bun check"
+  },
+  "dependencies": {
+    "@earendil-works/chord": "^1.6.0",
+    "@earendil-works/pi-ai": "^1.6.0",
+    "@earendil-works/pi-durable": "^1.6.0",
+    "@repo/types": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^7"
-  },
-  "dependencies": {
-    "@repo/types": "workspace:*",
-    "@earendil-works/chord": "^1.6.0",
-    "@earendil-works/pi-ai": "^1.6.0",
-    "@earendil-works/pi-durable": "^1.6.0"
   }
 }
