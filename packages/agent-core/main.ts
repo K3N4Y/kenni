@@ -1,18 +1,16 @@
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { BACKGROUND_CONTEXT as context } from "@earendil-works/chord/context";
-import { builtinModels } from "@earendil-works/pi-ai/providers/all";
-import { AssistantEntry, createRegistry, Harness } from "@earendil-works/pi-durable";
+import { AssistantEntry, Harness } from "@earendil-works/pi-durable";
+import { models } from "./models";
 import type { ConversationId } from "@earendil-works/pi-durable";
 import { openNodeSqliteStorage } from "@earendil-works/pi-durable/storage/sqlite/node";
 import { NodeExecutionEnv } from "@earendil-works/pi-durable/env/node";
-import { CodingTools } from "@earendil-works/pi-durable/tools";
 import type { ConversationResult, Request } from "@repo/types/agent-core";
+import { Registry } from "./registry";
 
 export async function openAgent() {
-  const models = builtinModels();
-  const registry = createRegistry();
-  registry.install(CodingTools);
+  const registry = Registry();
 
   const harness = await Harness.open(
     await openNodeSqliteStorage(join(homedir(), ".kenni", "agent.sqlite")),
