@@ -19,6 +19,7 @@
       "dependencies": {
         "@electron-toolkit/preload": "^3.0.2",
         "@electron-toolkit/utils": "^4.0.0",
+        "agent-core": "workspace:*",
       },
       "devDependencies": {
         "@electron-toolkit/tsconfig": "^2.0.0",
@@ -41,6 +42,7 @@
       "dependencies": {
         "@opentui/core": "^0.9.5",
         "@opentui/react": "^0.9.5",
+        "agent-core": "workspace:*",
         "react": "^19.3.1",
       },
       "devDependencies": {
@@ -55,6 +57,7 @@
         "@earendil-works/chord": "^1.6.0",
         "@earendil-works/pi-ai": "^1.6.0",
         "@earendil-works/pi-durable": "^1.6.0",
+        "@repo/types": "workspace:*",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -77,6 +80,10 @@
     },
     "packages/types": {
       "name": "@repo/types",
+      "dependencies": {
+        "@earendil-works/pi-ai": "^1.6.0",
+        "@earendil-works/pi-durable": "^1.6.0",
+      },
       "devDependencies": {
         "@repo/config": "workspace:*",
       },

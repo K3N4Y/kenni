@@ -2,11 +2,18 @@
   "name": "@repo/types",
   "private": true,
   "type": "module",
+  "exports": {
+    "./agent-core": "./agent-core.ts"
+  },
   "scripts": {
     "lint": "oxlint .",
     "typecheck": "bun check",
     "format": "oxfmt --write .",
     "format:check": "oxfmt --check ."
+  },
+  "dependencies": {
+    "@earendil-works/pi-ai": "^1.6.0",
+    "@earendil-works/pi-durable": "^1.6.0"
   },
   "devDependencies": {
     "@repo/config": "workspace:*"
