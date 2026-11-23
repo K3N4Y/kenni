@@ -1,6 +1,6 @@
 # Desktop
 
-A desktop application built with Electron, React, and TypeScript.
+A desktop application built with Electron, React, TypeScript, and Tailwind CSS.
 
 Run these commands from the repository root:
 
