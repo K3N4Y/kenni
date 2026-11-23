@@ -4,7 +4,10 @@
   "type": "module",
   "exports": "./main.ts",
   "scripts": {
-    "typecheck": "bun check"
+    "lint": "oxlint .",
+    "typecheck": "bun check",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check ."
   },
   "dependencies": {
     "@earendil-works/chord": "^1.6.0",
@@ -13,6 +16,7 @@
     "@repo/types": "workspace:*"
   },
   "devDependencies": {
+    "@repo/config": "workspace:*",
     "@types/bun": "latest"
   },
   "peerDependencies": {

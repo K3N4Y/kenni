@@ -21,14 +21,14 @@ const kenniAgent = `
     - Be concise in your responses
     - Show file paths clearly when working with files
     </rules>
-    `
+    `;
 
 export const agentConfig = defineExtension({
-    name: "agent",
-    sections: [section("preamble", () => kenniAgent)],
-})
+  name: "agent",
+  sections: [section("preamble", () => kenniAgent)],
+});
 
 export const botConfig = defineExtension({
-    name: "bot",
-    sections: [section("preamble", () => "")],
-})
+  name: "bot",
+  sections: [section("preamble", () => "")],
+});
