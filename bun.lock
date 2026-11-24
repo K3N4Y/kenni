@@ -64,6 +64,7 @@
         "@repo/types": "workspace:*",
       },
       "devDependencies": {
+        "@repo/config": "workspace:*",
         "@types/bun": "latest",
       },
       "peerDependencies": {
