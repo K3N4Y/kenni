@@ -1,4 +1,4 @@
-import { SidebarSimple } from "@phosphor-icons/react";
+import { SidebarIcon } from "@phosphor-icons/react";
 import { Sidebar } from "@repo/ui";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ function App(): React.JSX.Element {
         aria-label={open ? "Close sidebar" : "Open sidebar"}
         className="fixed top-3 left-3 rounded-md p-1.5 text-neutral-500 hover:bg-neutral-100 hover:text-neutral-800"
       >
-        <SidebarSimple size={20} />
+        <SidebarIcon size={20} />
       </button>
     </div>
   );
