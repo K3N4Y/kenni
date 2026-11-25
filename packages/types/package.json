@@ -8,8 +8,7 @@
   "scripts": {
     "lint": "oxlint .",
     "typecheck": "bun check",
-    "format": "oxfmt --write .",
-    "format:check": "oxfmt --check ."
+    "format": "oxfmt --write ."
   },
   "dependencies": {
     "@earendil-works/pi-ai": "^1.6.0",

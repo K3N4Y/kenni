@@ -28,6 +28,7 @@ const { values, positionals } = parseArgs({
 
 if (values.help) {
   console.log(usage);
+
   process.exit(0);
 }
 
@@ -37,5 +38,6 @@ try {
   await renderTUI(instruction || undefined);
 } catch (error) {
   console.error(error);
+
   process.exitCode = 1;
 }

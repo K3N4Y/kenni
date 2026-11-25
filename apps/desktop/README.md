@@ -15,5 +15,17 @@ To check types and build the application:
 bun run --cwd apps/desktop build
 ```
 
-To package the application, run `bun run --cwd apps/desktop build:linux`,
-`build:mac`, or `build:win` for the target platform.
+To package the application for the current platform:
+
+```sh
+bun run --cwd apps/desktop release
+```
+
+Pass a platform flag to `electron-builder` for another target, or `--dir` for an
+unpacked build:
+
+```sh
+cd apps/desktop
+bun x electron-builder --linux
+bun x electron-builder --dir
+```

@@ -15,9 +15,9 @@ GitHub Actions runs the checks directly and does not push commits.
 
 ## Run the checks
 
-- Run `bun run format:check` to check the format of the repository files.
-- Run `bun run check` to run lint and type checks at the root and in all workspaces.
-- Run `bun run check <base>` to run the root checks and use `turbo --affected` to select workspaces. Turbo checks all workspaces if the clone is shallow or if the base is not an available ancestor of `HEAD`.
+- Run `bun x oxfmt --check .` to check the format of the repository files.
+- Run `sh scripts/check-workspaces.sh` to run lint and type checks at the root and in all workspaces.
+- Run `sh scripts/check-workspaces.sh <base>` to run the root checks and use `turbo --affected` to select workspaces. Turbo checks all workspaces if the clone is shallow or if the base is not an available ancestor of `HEAD`.
 
 ## Push branch updates
 

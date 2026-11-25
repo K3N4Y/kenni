@@ -2,8 +2,9 @@
 set -eu
 
 base=${1:-}
-bun run lint:root
-bun run typecheck:root
+
+bun run lint:oxlint
+bun check
 
 if [ -n "$base" ] && [ "$(git rev-parse --is-shallow-repository)" = false ] &&
   git merge-base --is-ancestor "$base" HEAD 2>/dev/null; then

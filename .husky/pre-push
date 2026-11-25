@@ -31,4 +31,4 @@ if [ -n "$(git status --porcelain --untracked-files=normal)" ]; then
   exit 1
 fi
 
-exec bun run check "$base"
+exec sh scripts/check-workspaces.sh "$base"

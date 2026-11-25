@@ -5,8 +5,7 @@
   "scripts": {
     "lint": "oxlint .",
     "typecheck": "bun check",
-    "format": "oxfmt --write .",
-    "format:check": "oxfmt --check ."
+    "format": "oxfmt --write ."
   },
   "devDependencies": {
     "@repo/config": "workspace:*"

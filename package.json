@@ -7,21 +7,18 @@
   ],
   "type": "module",
   "scripts": {
-    "lint": "bun run lint:root && turbo run lint",
-    "lint:root": "oxlint oxfmt.config.ts",
-    "typecheck": "bun run typecheck:root && turbo run typecheck",
-    "typecheck:root": "bun check",
-    "check": "sh scripts/check-workspaces.sh",
+    "lint": "bun run lint:oxlint && turbo run lint",
+    "lint:oxlint": "oxlint oxfmt.config.ts",
+    "typecheck": "bun check && turbo run typecheck",
     "format": "oxfmt --write .",
-    "format:check": "oxfmt --check .",
-    "prepare": "husky",
-    "agent": "bun run --cwd apps/agent start"
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@interfere/landmines": "^0.3.1",
     "@repo/config": "workspace:*",
     "husky": "^9.1.7",
     "oxfmt": "^0.79.0",
-    "oxlint": "^1.94.0",
+    "oxlint": "^1.95.0",
     "turbo": "^2.11.11",
     "typescript": "^7.0.2"
   },

@@ -60,7 +60,7 @@ jobs:
 
       - name: Check formatting
         if: matrix.check == 'format'
-        run: bun run format:check
+        run: bun x oxfmt --check .
 
       - name: Cache Turbo task results
         if: matrix.check == 'workspaces'
@@ -75,4 +75,4 @@ jobs:
         if: matrix.check == 'workspaces'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: bun run check "$BASE_SHA"
+        run: sh scripts/check-workspaces.sh "$BASE_SHA"
